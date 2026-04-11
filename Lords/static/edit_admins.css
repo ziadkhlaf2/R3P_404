@@ -1,0 +1,103 @@
+.gaming-bg{
+    background-image:url("/static/imags/UI_Home.jpg");
+}
+
+
+/* التوسط في نص الشاشة بالضبط (عفواً يا لورد لو نسيتها المرة اللي فاتت) */
+.center-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: #ffd700; /* اللون الدهبي اللي مستخدمه في الصور */
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* شكل الفورم الزجاجي الاحترافي */
+.admin-edit-form {
+    background: rgba(15, 15, 27, 0.85); /* لون غامق شفاف */
+    backdrop-filter: blur(12px); /* تأثير التغبيش (Glassmorphism) */
+    border: 2px solid #ffd700; /* إطار دهبي */
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px; /* عرض الفورم */
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 20px;
+}
+
+/* تنسيق مجموعة الحقول في سطر واحد */
+.row-align {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: right; /* يخلي الكلام عربي على اليمين */
+}
+
+/* تنسيق اسم المهمة على اليمين */
+.admin-task-label {
+    flex: 1; /* يأخد مساحة متساوية */
+    color: #ffd700;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-left: 15px; /* مسافة بين الكلام والخانة */
+}
+
+/* تنسيق خانة الإدخال */
+.admin-input-field {
+    flex: 2; /* يأخد مساحة أكبر */
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+
+/* تنسيق سطر الزرار */
+.form-submit-row {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* تنسيق زر الحفظ */
+.save-btn.small {
+    background: #ffd700;
+    color: black;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto; /* خليه بحجم الكلام */
+}
+
+.save-btn.small:hover {
+    background: white;
+    box-shadow: 0 0 15px #ffd700;
+}
+
+/* تنسيق روابط التنقل */
+.nav-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

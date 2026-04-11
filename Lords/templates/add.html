@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إضافة لاعب جديد</title>
+    <link rel="stylesheet" href="/static/add.css">
+</head>
+<body class="gaming-bg">
+
+    <div class="center-wrapper">
+        <h1 class="page-title">➕ إضافة لاعب جديد للتحالف</h1>
+
+        <form method="POST" class="admins-form">
+            <div class="input-group">
+                <label>اسم اللاعب:</label>
+                <input type="text" name="player_name" placeholder="ادخل الاسم هنا..." required>
+            </div>
+
+            <div class="input-group">
+                <label>رقم التعريف (ID):</label>
+                <input type="text" name="player_id" placeholder="ادخل الـ ID هنا..." required>
+            </div>
+
+            <div class="input-group">
+                <label>الحالة:</label>
+                <select name="is_spy">
+                    <option value="0">ليس جاسوس</option>
+                    <option value="1">نعم جاسوس</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">✨ إضافة اللاعب</button>
+            </div>
+        </form>
+
+        <div class="back-navigation">
+            <a href="/reports" class="back-link">⬅️ العودة للتقارير</a>
+        </div>
+    </div>
+
+</body>
+</html>

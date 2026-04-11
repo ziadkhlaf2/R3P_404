@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تقارير التحالف</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* تنسيقات خاصة بالجدول هنا عشان متبوظش الـ Home */
+        .reports-table {
+            width: 95%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        th {
+            background-color: #1a1a2e;
+            color: #ffd700;
+            padding: 15px;
+            border-bottom: 2px solid #ffd700;
+        }
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: white;
+        }
+        /* تلوين الصفوف بناءً على الأداء */
+        .warning { background-color: rgba(231, 76, 60, 0.3) !important; color: #ff4d4d; }
+        .success { background-color: rgba(46, 204, 113, 0.2) !important; color: #2ecc71; }
+        
+        .edit-link { color: #3498db; text-decoration: none; font-weight: bold; }
+        .edit-link:hover { text-decoration: underline; color: #ffd700; }
+    </style>
+</head>
+<body>
+    <a href="/" class="top-left-home">
+        <i class="fas fa-house-chimney"></i>
+    </a>
+
+    <h1>📊 تقرير أداء أعضاء التحالف</h1>
+
+    <table class="reports-table">
+        <thead>
+            <tr>
+                <th>الاسم (ID)</th>
+                <th>الصيد الحالي</th>
+                <th>التارجت اليومي</th>
+                <th>نقاط المهرجان</th>
+                <th>ساحة التنين</th>
+                <th>الحالة</th>
+                {% if session.get('is_admin') %}
+                    <th>الإجراءات</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in players %}
+            <tr>
+                <td>{{ p.name }} ({{ p.id }})</td>
+                <td class="{{ 'warning' if p.monster_hunt < p.daily_target else 'success' }}">
+                    {{ p.monster_hunt }}
+                </td>
+                <td>{{ p.daily_target }}</td>
+                <td>{{ p.guild_fest_points }}</td>
+                <td>{{ p.dragon_arena_count }}</td>
+                <td>
+                    {{ '⚠️ جاسوس' if p.is_spy else '✅ لاعب سليم' }}
+                </td>
+                {% if session.get('is_admin') %}
+                    <td>
+                        <a href="/edit/{{p.id}}" class="edit-link">⚙️ تعديل</a>
+                    </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="nav-container">
+        <a href="/" class="magic-btn">🏠 الرئيسية</a>
+        <a href="/search" class="magic-btn">🔍 بحث</a>
+        {% if session.get('is_admin') %}
+            <a href="/add" class="magic-btn" style="background: #27ae60;">➕ إضافة لاعب</a>
+        {% endif %}
+    </div>
+</body>
+</html>

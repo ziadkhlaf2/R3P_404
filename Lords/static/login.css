@@ -1,0 +1,249 @@
+/* التنسيقات الأساسية */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/static/background.jpg'); /* حافظتلك على خلفيتك 😉 */
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Secular One', 'Tahoma', sans-serif; /* خط مناسب للجيمنج 😉 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 2.2rem;
+    color: #ffd700; /* اللون الدهبي اللي بتحبه 😉 */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+p {
+    font-size: 1rem;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+span {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+/* روابط الـ Social والأزرار الـ Ghost */
+.social-container a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.social-container {
+    margin: 20px 0;
+}
+
+/* الحاوية الرئيسية */
+.main-container {
+    background: rgba(15, 15, 27, 0.9); /* أسود عميق شفاف */
+    border-radius: 20px; /* حواف دائرية زي الصورة 😉 */
+    box-shadow: 0 14px 28px rgba(0,0,0,0.5), 
+                0 10px 10px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    width: 768px; /* عرض مناسب */
+    max-width: 100%;
+    min-height: 520px; /* طول مناسب */
+}
+
+/* تنسيق الفورم العام */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* تنسيق حقول الإدخال */
+input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: #ffd700;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* رابط نسيت كلمة المرور */
+.forgot-pass {
+    color: rgba(255, 215, 0, 0.7);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+.forgot-pass:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* تنسيق الأزرار (الدهبي) */
+button {
+    border-radius: 30px;
+    border: none;
+    background: #ffd700;
+    color: #111;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 45px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 80ms ease-in, box-shadow 0.3s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:hover {
+    box-shadow: 0 0 15px #ffd700;
+}
+
+/* تنسيق الأزرار الـ Ghost (اللي بتبان شفافة) */
+button.ghost {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+button.ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* === تنسيق الـ Overlay (الجزء الأزرق المتحرك) === */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: linear-gradient(135deg, #2a5298, #1e3c72); /* أزرق فخم 😉 */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+/* === السحر عند تفعيل الـ JavaScript === */
+.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+/* أنيميشن الظهور */
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}

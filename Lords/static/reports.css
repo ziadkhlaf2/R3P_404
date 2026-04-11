@@ -1,0 +1,120 @@
+/* --- تنسيق صفحة التقارير --- */
+
+/* حاوية الجدول عشان نضمن إنه في النص وشكله شيك */
+.reports-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* الجدول نفسه */
+.reports-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(15, 15, 27, 0.85); /* خلفية داكنة شفافة */
+    backdrop-filter: blur(10px); /* تأثير التغبيش للزجاج */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 215, 0, 0.2); /* إطار ذهبي خفيف جداً */
+}
+
+/* العناوين (رأس الجدول) */
+.reports-table th {
+    background-color: rgba(26, 26, 46, 0.9);
+    color: #ffd700; /* لون ذهبي */
+    padding: 18px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ffd700;
+}
+
+/* الخلايا (محتوى الجدول) */
+.reports-table td {
+    padding: 15px;
+    text-align: center;
+    color: #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 1rem;
+}
+
+/* تأثير عند الوقوف على الصف بالماوس */
+.reports-table tbody tr:hover {
+    background-color: rgba(255, 215, 0, 0.05); /* إضاءة ذهبية خفيفة */
+    transition: 0.3s;
+}
+
+/* --- ألوان الحالة والأداء --- */
+
+/* لو الصيد أقل من التارجت (Warning) */
+.warning {
+    color: #ff4d4d !important; /* أحمر نيون */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
+}
+
+/* لو الصيد تمام (Success) */
+.success {
+    color: #2ecc71 !important; /* أخضر */
+    font-weight: bold;
+}
+
+/* لو فيه جاسوس */
+.spy-alert {
+    background-color: rgba(233, 69, 96, 0.2);
+    color: #e94560;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #e94560;
+}
+
+/* زر التعديل الصغير للمسؤولين */
+.edit-link {
+    display: inline-block;
+    padding: 5px 12px;
+    background: transparent;
+    border: 1px solid #3498db;
+    color: #3498db;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.edit-link:hover {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+/* استجابة الشاشات الصغيرة (الموبايل) */
+@media (max-width: 768px) {
+    .reports-table {
+        display: block;
+        overflow-x: auto; /* يخلي الجدول يسحب يمين وشمال في الموبايل */
+    }
+}
+
+.top-left-home{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgb(255, 215, 0, 0.5);
+    transition: 0.3;
+    -webkit-transition: 0.3;
+    -moz-transition: 0.3;
+    -ms-transition: 0.3;
+    -o-transition: 0.3;
+}
+
+.top-left-home:hover{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    color: white;
+}

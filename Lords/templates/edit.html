@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تعديل لاعب</title>
+    <link rel="stylesheet" href="/static/edit.css">
+</head>
+<body class="gaming-bg">
+
+    <div class="admins-container">
+        <h1 class="page-title">تعديل بيانات: {{ player.name }}</h1>
+
+        <form method="POST" class="admins-form">
+            <div class="input-group">
+                <label>الاسم الجديد:</label>
+                <input type="text" name="player_name" value="{{ player.name }}" required>
+            </div>
+
+            <div class="input-group">
+                <label>الـ ID الجديد:</label>
+                <input type="text" name="player_id" value="{{ player.id }}" required>
+            </div>
+
+            <div class="input-group">
+                <label>الحالة:</label>
+                <select name="is_spy">
+                    <option value="1" {% if player.is_spy %}selected{% endif %}>نعم جاسوس</option>
+                    <option value="0" {% if not player.is_spy %}selected{% endif %}>ليس جاسوس</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">💾 حفظ التعديلات</button>
+            </div>
+        </form>
+
+        <div class="back-navigation">
+            <a href="/reports" class="back-link">⬅️ رجوع</a>
+        </div>
+    </div>
+
+</body>
+</html>

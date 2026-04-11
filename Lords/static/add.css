@@ -1,0 +1,74 @@
+.gaming-bg{
+    background-image:url("/static/imags/UI_Home.jpg");
+}
+
+
+/* التوسط في نص الشاشة */
+.center-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.page-title {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+/* المربع (الكارت) */
+.admins-form {
+    background: rgba(15, 15, 27, 0.85);
+    backdrop-filter: blur(10px);
+    border: 2px solid #ffd700;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.input-group label {
+    display: block;
+    color: #ffd700;
+    margin-bottom: 8px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    color: white;
+}
+
+.save-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffd700;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    background: white;
+    box-shadow: 0 0 15px #ffd700;
+}
+
+.back-link {
+    margin-top: 20px;
+    color: #ffd700;
+    text-decoration: none;
+}

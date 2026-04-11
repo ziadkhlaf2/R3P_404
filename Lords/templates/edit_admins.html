@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة مسؤولي المهام - R3P</title>
+    <link rel="stylesheet" href="/static/edit_admins.css">
+</head>
+<body class="gaming-bg">
+
+    <div class="main-content center-form-wrapper">
+        <h1 class="page-title">⚙️ إدارة مسؤولي المهام</h1>
+
+        <form method="POST" class="admin-edit-form">
+            {% for task in tasks %}
+            <div class="form-group row-align">
+                <label class="admin-task-label">{{ task }}:</label>
+                <input type="text" name="{{ task }}" 
+                        value="{{ current_admins.get(task, '') }}" 
+                        class="admin-input-field"
+                        placeholder="...ادخل اسم المسؤول">
+            </div>
+            {% endfor %}
+
+            <div class="form-submit-row">
+                <button type="submit" class="save-btn small">💾 حفظ التغييرات</button>
+            </div>
+        </form>
+        
+        <div class="nav-links">
+            <a href="/admins" class="back-link">🔙 العودة لقائمة المسؤولين</a>
+        </div>
+    </div>
+
+</body>
+</html>

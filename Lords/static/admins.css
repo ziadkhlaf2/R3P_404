@@ -1,0 +1,89 @@
+.gaming-bg{
+    background-image:url("/static/imags/UI_Home.jpg");
+}
+
+
+/* تنسيق الحاوية عشان الكروت تترص جنب بعضها */
+.admins-wrapper {
+    display: flex;
+    justify-content: center; /* يخلي الكروت في نص الشاشة */
+    padding: 40px 20px;
+}
+
+.admins-grid {
+    display: flex;
+    flex-wrap: wrap; /* عشان لو الكروت كتير تنزل سطر جديد تلقائي */
+    justify-content: center;
+    gap: 30px; /* المسافة بين الكروت */
+    max-width: 1200px;
+}
+
+/* ستايل المربع (الكارت الزجاجي المحفور) */
+.admin-card {
+    background: rgba(15, 15, 27, 0.85); /* لون داكن شفاف */
+    backdrop-filter: blur(12px); /* تأثير التغبيش على الخلفية (Glassmorphism) */
+    border: 2px solid rgba(255, 215, 0, 0.3); /* إطار دهبي محفور */
+    border-radius: 20px; /* حواف دائرية */
+    width: 260px; /* عرض المربع */
+    padding: 25px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5); /* ظل لتعميق الشكل */
+}
+
+/* تأثير عند مرور الماوس على المربع */
+.admin-card:hover {
+    transform: translateY(-12px) scale(1.05); /* حركة احترافية عند اللمس */
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.task-name {
+    color: #ffd700;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    margin: 15px auto;
+    width: 80%;
+}
+
+.admin-display-name {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* تنسيق الأزرار السفلية */
+.bottom-nav {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 10px;
+    text-decoration: none;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    background: #ffd700;
+    color: #000;
+}

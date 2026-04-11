@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>البحث عن لاعب</title>
+    <link rel="stylesheet" href="/static/index.css"> </head>
+<body>
+    <h1>🔍 بحث الحالة</h1>
+
+    <div class="nav-container">
+        <div class="search-box-container">
+            <form action="/search" method="POST">
+                <input type="text" name="player_id" placeholder="أدخل معرف اللاعب (ID).." required class="search-input">
+                <button type="submit" class="magic-btn" style="display: inline-block; padding: 10px 20px;">بحث</button>
+            </form>
+        </div>
+
+        {% if result %}
+            <div class="result-card">
+                <p>👤 اللاعب: <strong>{{ result.name }}</strong></p>
+                <p>📊 الحالة: 
+                    {% if result.is_spy %}
+                        <span class="spy-alert">⚠️ جاسوس</span>
+                    {% else %}
+                        <span class="success">✅ سليم</span>
+                    {% endif %}
+                </p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="nav-container" style="margin-top: 30px;">
+        <a href="/" class="magic-btn">🏠 الرئيسية</a>
+        <a href="/reports" class="magic-btn">📊 التقارير</a>
+        
+        {% if session.get('is_admin') %}
+            <a href="/add" class="magic-btn" style="background: #27ae60;">➕ إضافة لاعب جديد</a>
+        {% endif %}
+    </div>
+</body>
+</html>
