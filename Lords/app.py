@@ -74,13 +74,21 @@ def update_player(id):
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edit_player(id):
-    player = Player.query.get(id) 
+    player = Player.query.get(id)
     if request.method == 'POST':
-        player.is_spy = request.form.get('is_spy') == '1'
+        # تحديث كل الخانات
         player.name = request.form.get('player_name')
-        db.session.commit() 
+        player.is_spy = request.form.get('is_spy') == '1'
+        player.monster_hunt = int(request.form.get('monster_hunt', 0))
+        player.daily_target = int(request.form.get('daily_target', 10))
+        player.guild_fest_points = int(request.form.get('gf_points', 0))
+        player.dragon_arena_count = int(request.form.get('dragon_count', 0))
+        
+        db.session.commit()
         return redirect('/reports')
+    
     return render_template('edit.html', player=player)
+
 
 @app.route('/admins')
 def admins_page():
